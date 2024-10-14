@@ -1,0 +1,66 @@
+{
+  // Editor config
+  "editor.fontFamily": "MonoLisa",
+  "editor.fontSize": 18,
+  "editor.lineHeight": 2.5,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[prisma]": {
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+  "editor.lineNumbers": "on",
+  "editor.renderWhitespace": "none",
+  "editor.guides.indentation": false,
+  "editor.renderLineHighlight": "none",
+  "apc.stylesheet": {
+    ".decorationsOverviewRuler": "display: none;",
+    ".editor-group-container .title *": "display: none;",
+    ".editor-group-container .title": "pointer-events: none;",
+    ".editor-group-container.empty": "-webkit-app-region: drag;",
+    ".monaco-editor .scroll-decoration": "box-shadow: none;"
+  },
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 2,
+  "editor.cursorSmoothCaretAnimation": "on",
+  // Terminal config
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.8,
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  // Workbench config    
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": false,
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "eq-material-theme-icons-palenight",
+  // Window config
+  "window.titleBarStyle": "custom",
+  "window.title": "👾",
+  // Others settings
+  "symbols.hidesExplorerArrows": false,
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "update.mode": "start",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "workbench.editor.decorations.badges": false,
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "breadcrumbs.enabled": false,
+  "window.menuBarVisibility": "compact",
+  "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "workbench.editor.showTabs": "none",
+  "php.validate.executablePath": "/usr/bin/php",
+  "php.suggest.basic": false,
+  "php.validate.run": "onType",
+}
