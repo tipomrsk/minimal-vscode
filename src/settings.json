@@ -1,66 +1,175 @@
 {
-  // Editor config
+  //--------------------------------------------------------------------------------
+  // CONFIGURAÇÕES DO EDITOR DE TEXTO
+  // Aparência e comportamento do editor de código.
+  //--------------------------------------------------------------------------------
   "editor.fontFamily": "MonoLisa",
   "editor.fontSize": 18,
   "editor.lineHeight": 2.5,
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
-  "editor.minimap.enabled": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "[prisma]": {
-    "editor.formatOnSave": true
-  },
-  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
   "editor.lineNumbers": "on",
-  "editor.renderWhitespace": "none",
+  "editor.minimap.enabled": false,
   "editor.guides.indentation": false,
+  "editor.renderWhitespace": "none",
   "editor.renderLineHighlight": "none",
-  "apc.stylesheet": {
-    ".decorationsOverviewRuler": "display: none;",
-    ".editor-group-container .title *": "display: none;",
-    ".editor-group-container .title": "pointer-events: none;",
-    ".editor-group-container.empty": "-webkit-app-region: drag;",
-    ".monaco-editor .scroll-decoration": "box-shadow: none;"
-  },
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  //--------------------------------------------------------------------------------
+  // COMPORTAMENTO DO CURSOR
+  //--------------------------------------------------------------------------------
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "line",
   "editor.cursorWidth": 2,
   "editor.cursorSmoothCaretAnimation": "on",
-  // Terminal config
+  //--------------------------------------------------------------------------------
+  // WORKBENCH (INTERFACE DO VS CODE)
+  // Configurações da interface principal, como barra de atividades, abas, etc.
+  //--------------------------------------------------------------------------------
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.iconTheme": "bearded-icons",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.startupEditor": "none",
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": false,
+  "workbench.editor.showTabs": "none",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.editor.decorations.badges": false,
+  "workbench.layoutControl.enabled": false,
+  "breadcrumbs.enabled": false,
+  "symbols.hidesExplorerArrows": false,
+  //--------------------------------------------------------------------------------
+  // JANELA E TÍTULO
+  //--------------------------------------------------------------------------------
+  "window.titleBarStyle": "custom",
+  "window.title": "${activeFolderMedium}",
+  "window.menuBarVisibility": "hidden",
+  "window.commandCenter": false,
+  //--------------------------------------------------------------------------------
+  // TERMINAL INTEGRADO
+  //--------------------------------------------------------------------------------
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.8,
   "terminal.integrated.fontFamily": "MesloLGS NF",
-  // Workbench config    
-  "workbench.activityBar.location": "hidden",
-  "workbench.statusBar.visible": false,
-  "workbench.colorTheme": "One Dark Pro",
-  "workbench.iconTheme": "eq-material-theme-icons-palenight",
-  // Window config
-  "window.titleBarStyle": "custom",
-  "window.title": "👾",
-  // Others settings
-  "symbols.hidesExplorerArrows": false,
-  "security.workspace.trust.untrustedFiles": "newWindow",
-  "update.mode": "start",
+  "terminal.integrated.suggest.providers": {
+    "terminal-suggest": true
+  },
+  //--------------------------------------------------------------------------------
+  // GERENCIAMENTO DE ARQUIVOS E PERFORMANCE (WSL)
+  // Configurações de salvamento, auto-revelação e otimização de performance.
+  //--------------------------------------------------------------------------------
+  "explorer.autoReveal": true,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "files.saveConflictResolution": "overwriteFileOnDisk",
+  //
+  // Exclui diretórios grandes do observador de arquivos do VS Code.
+  // Essencial para performance em projetos com node_modules, vendor, etc.
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/build/**": true,
+    "**/dist/**": true
+  },
+  //--------------------------------------------------------------------------------
+  // CONTROLE DE VERSÃO (GIT)
+  //--------------------------------------------------------------------------------
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
-  "workbench.editor.decorations.badges": false,
+  "scm.alwaysShowRepositories": true,
+  "githubPullRequests.fileListLayout": "tree",
+  "diffEditor.ignoreTrimWhitespace": false,
+  //--------------------------------------------------------------------------------
+  // CONFIGURAÇÕES DE EXTENSÕES E FORMATAÇÃO
+  // Bloco para configurar formatadores, linters e outras extensões.
+  //--------------------------------------------------------------------------------
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // A configuração abaixo pertence à extensão
+  // "APC Customize UI++" e injeta CSS na interface. É uma causa provável de
+  // problemas de UI, incluindo a falha no "explorer.autoReveal".
+  // Recomendo manter comentado para testar se o problema é resolvido.
+  "apc.stylesheet": {
+    ".decorationsOverviewRuler": "display: none;",
+    ".editor-group-container.title *": "display: none;",
+    ".editor-group-container.title": "pointer-events: none;",
+    ".editor-group-container.empty": "-webkit-app-region: drag;",
+    ".monaco-editor.scroll-decoration": "box-shadow: none;"
+  },
+  // Configurações da extensão "Run On Save"
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.php$",
+        "cmd": "${workspaceFolder}/vendor/bin/pint ${file}"
+      }
+    ]
+  },
+  // Configurações da extensão "Laravel Pint"
+  "laravel-pint.enable": true,
+  // Configurações da extensão "GitHub Copilot"
+  "github.copilot.enable": {
+    "*": false
+  },
+  "github.copilot.advanced": {
+    "authProvider": "github"
+  },
+  //--------------------------------------------------------------------------------
+  // CONFIGURAÇÕES POR LINGUAGEM
+  // Define formatadores e comportamentos específicos para cada tipo de arquivo.
+  //--------------------------------------------------------------------------------
+  // PHP CS FIXER
+  "php-cs-fixer.onsave": true,
+  "php-cs-fixer.showOutput": false,
+  "php-cs-fixer.autoFixByBracket": false,
+  "php-cs-fixer.rules": "@PSR2",
+  "php-cs-fixer.config": ".php-cs-fixer.php;.php_cs;.php_cs.dist",
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "[php]": {
+    "editor.defaultFormatter": "junstyle.php-cs-fixer",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "[prisma]": {
+    "editor.formatOnSave": true
+  },
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false,
-  "breadcrumbs.enabled": false,
-  "window.menuBarVisibility": "compact",
-  "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "workbench.editor.showTabs": "none",
-  "php.validate.executablePath": "/usr/bin/php",
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  //--------------------------------------------------------------------------------
+  // CONFIGURAÇÕES NATIVAS DE PHP
+  // Desativar sugestões básicas do VS Code para não conflitarem com o Intelephense.
+  //--------------------------------------------------------------------------------
   "php.suggest.basic": false,
   "php.validate.run": "onType",
+  //--------------------------------------------------------------------------------
+  // OUTRAS CONFIGURAÇÕES
+  //--------------------------------------------------------------------------------
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "update.mode": "start",
+  "workbench.experimental.enableNewProfilesUI": true
 }
